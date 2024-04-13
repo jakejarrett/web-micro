@@ -3,7 +3,8 @@ import * as fs from 'fs';
 import * as ReactDOMServer from 'react-dom/server';
 import isbot from 'isbot';
 
-import App from './app/app';
+import { App } from './app/app';
+import { ProvidersEntry } from './providerEntry';
 
 import { StaticRouter } from 'react-router-dom/server';
 
@@ -27,7 +28,9 @@ export function handleRequest(indexPath: string) {
 
     const stream = ReactDOMServer.renderToPipeableStream(
       <StaticRouter location={req.originalUrl}>
-        <App />
+        <ProvidersEntry>
+          <App />
+        </ProvidersEntry>
       </StaticRouter>,
       {
         [callbackName]() {
