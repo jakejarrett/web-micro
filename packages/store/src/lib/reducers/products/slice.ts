@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { PRODUCTS, Product, IProductsState } from "../../../types/products";
+import { PRODUCTS, Product, IProductsState, FETCH_PRODUCTS, FETCH_PRODUCTS_SUCCEEDED } from "../../sagas/products/types";
 
 const usersInitialState: IProductsState = {
   data: undefined,
@@ -22,22 +22,23 @@ const productsSlice = createSlice({
       state.isLoading = false;
       state.data = products;
     },
-    getProdductsErrorAction: (state: IProductsState, { payload: error }: PayloadAction<string>) => {
+    getProductsErrorAction: (state: IProductsState, { payload: error }: PayloadAction<string>) => {
       state.isLoading = false;
       state.errors = error;
     },
-  }
+  },
 });
+
 const {
   getProductsAction,
   getProductsSuccessAction,
-  getProdductsErrorAction
+  getProductsErrorAction
 } = productsSlice.actions;
 
 export {
   getProductsAction,
   getProductsSuccessAction,
-  getProdductsErrorAction,
+  getProductsErrorAction,
   productsSlice,
 };
 

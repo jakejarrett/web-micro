@@ -1,15 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
-import {
-  ReactReduxContext,
-  useDispatch,
-  useSelector,
-  useStore,
-} from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { getProductsAction } from '../lib/reducers/products/slice';
 import { StateType } from '../lib/reducers';
-import { FETCH_PRODUCTS } from '../types/products';
 
 const Product = React.lazy(() => import('product/Module'));
 
@@ -25,9 +18,7 @@ export const App: React.FC = () => {
   // console.log(store);
 
   useEffect(() => {
-    dispatch({
-      type: FETCH_PRODUCTS,
-    });
+    dispatch(getProductsAction());
   }, []);
 
   return (

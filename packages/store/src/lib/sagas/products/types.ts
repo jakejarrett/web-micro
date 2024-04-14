@@ -35,6 +35,6 @@ export type ProductsStateType = {
 }
 
 export const PRODUCTS = "PRODUCTS";
-export const FETCH_PRODUCTS = `${PRODUCTS}.FETCH_REQUESTED`;
-export const FETCH_PRODUCTS_SUCCEEDED = `${PRODUCTS}.FETCH_SUCCEEDED`;
-export const FETCH_PRODUCTS_FAILED = `${PRODUCTS}.FETCH_FAILED`;
+export const FETCH_PRODUCTS = `${PRODUCTS}/getProductsAction`;
+export const FETCH_PRODUCTS_SUCCEEDED = `${PRODUCTS}/getProductsSuccessAction`;
+export const FETCH_PRODUCTS_FAILED = `${PRODUCTS}/getProductsErrorAction`;
