@@ -1,12 +1,14 @@
+import { lazy, Suspense } from 'react';
 import type { Request, Response } from 'express';
 import * as fs from 'fs';
 import * as ReactDOMServer from 'react-dom/server';
 import isbot from 'isbot';
 
 import { App } from './app/app';
-import { ProvidersEntry } from './providerEntry';
 
 import { StaticRouter } from 'react-router-dom/server';
+
+const StateHost = lazy(() => import('state/Module'));
 
 let indexHtml: null | string = null;
 
@@ -28,9 +30,11 @@ export function handleRequest(indexPath: string) {
 
     const stream = ReactDOMServer.renderToPipeableStream(
       <StaticRouter location={req.originalUrl}>
-        <ProvidersEntry>
-          <App />
-        </ProvidersEntry>
+        <Suspense fallback={null}>
+          <StateHost>
+            <App />
+          </StateHost>
+        </Suspense>
       </StaticRouter>,
       {
         [callbackName]() {

@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "checkout/Module": ["packages/checkout/src/remote-entry.ts"],
-      "product/Module": ["packages/product/src/remote-entry.ts"]
+      "product/Module": ["packages/product/src/remote-entry.ts"],
+      "state/Module": ["packages/state/src/remote-entry.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

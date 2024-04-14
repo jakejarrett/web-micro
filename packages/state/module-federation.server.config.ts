@@ -1,9 +1,9 @@
 import { ModuleFederationConfig } from '@nx/webpack';
 
 const config: ModuleFederationConfig = {
-  name: 'checkout',
+  name: 'state',
   exposes: {
-    './Module': 'packages/checkout/src/remote-entry.ts',
+    './Module': 'packages/state/src/remote-entry.ts',
   },
   additionalShared: [
     {

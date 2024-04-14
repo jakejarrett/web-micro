@@ -1,4 +1,4 @@
-import { all, fork } from "redux-saga/effects";
+import { all, fork } from 'redux-saga/effects';
 import { productsSaga } from './products';
 
 export const rootSaga = function* () {
@@ -7,3 +7,5 @@ export const rootSaga = function* () {
     // Other forks
   ]);
 };
+
+export type { IProductsState, Product } from './products/types';

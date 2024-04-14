@@ -27,6 +27,7 @@ const prodConfig: ModuleFederationConfig = {
   remotes: [
     ['product', 'http://localhost:4201/'],
     ['checkout', 'http://localhost:4202/'],
+    ['state', 'http://localhost:4203/'],
   ],
 };
 

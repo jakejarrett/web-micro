@@ -14,42 +14,42 @@ const config: ModuleFederationConfig = {
    * declare module 'my-external-remote';
    *
    */
-  remotes: ['product', 'checkout'],
+  remotes: ['product', 'checkout', 'state'],
   additionalShared: [
     {
-      libraryName: "@reduxjs/toolkit",
+      libraryName: '@reduxjs/toolkit',
       sharedConfig: {
         singleton: true,
-        requiredVersion: "2.2.3",
-      }
+        requiredVersion: '2.2.3',
+      },
     },
     {
-      libraryName: "react-redux",
+      libraryName: 'react-redux',
       sharedConfig: {
         singleton: true,
-        requiredVersion: "9.1.0",
-      }
+        requiredVersion: '9.1.0',
+      },
     },
     {
-      libraryName: "redux",
+      libraryName: 'redux',
       sharedConfig: {
         singleton: true,
-        requiredVersion: "5.0.1",
-      }
+        requiredVersion: '5.0.1',
+      },
     },
     {
-      libraryName: "redux-saga",
+      libraryName: 'redux-saga',
       sharedConfig: {
         singleton: true,
-        requiredVersion: "1.3.0",
-      }
+        requiredVersion: '1.3.0',
+      },
     },
     {
-      libraryName: "react-error-boundary",
+      libraryName: 'react-error-boundary',
       sharedConfig: {
         singleton: true,
-        requiredVersion: "4.0.13",
-      }
+        requiredVersion: '4.0.13',
+      },
     },
   ],
 };

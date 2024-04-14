@@ -1,11 +1,17 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { PRODUCTS, Product, IProductsState, FETCH_PRODUCTS, FETCH_PRODUCTS_SUCCEEDED } from "../../sagas/products/types";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {
+  PRODUCTS,
+  Product,
+  IProductsState,
+  FETCH_PRODUCTS,
+  FETCH_PRODUCTS_SUCCEEDED,
+} from '../../sagas/products/types';
 
 const usersInitialState: IProductsState = {
   data: undefined,
   isLoading: false,
   errors: '',
-}
+};
 
 const productsSlice = createSlice({
   name: PRODUCTS,
@@ -18,22 +24,25 @@ const productsSlice = createSlice({
       state.isLoading = true;
       state.errors = '';
     },
-    getProductsSuccessAction: (state: IProductsState, { payload: products }: PayloadAction<Product[]>) => {
+    getProductsSuccessAction: (
+      state: IProductsState,
+      { payload: products }: PayloadAction<Product[]>
+    ) => {
       state.isLoading = false;
       state.data = products;
     },
-    getProductsErrorAction: (state: IProductsState, { payload: error }: PayloadAction<string>) => {
+    getProductsErrorAction: (
+      state: IProductsState,
+      { payload: error }: PayloadAction<string>
+    ) => {
       state.isLoading = false;
       state.errors = error;
     },
   },
 });
 
-const {
-  getProductsAction,
-  getProductsSuccessAction,
-  getProductsErrorAction
-} = productsSlice.actions;
+const { getProductsAction, getProductsSuccessAction, getProductsErrorAction } =
+  productsSlice.actions;
 
 export {
   getProductsAction,

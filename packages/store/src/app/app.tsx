@@ -1,12 +1,17 @@
 import React, { useEffect } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProductsAction } from '../lib/reducers/products/slice';
-import { StateType } from '../lib/reducers';
+import type { StateType } from 'state/Module';
 
 const Product = React.lazy(() => import('product/Module'));
 
 const Checkout = React.lazy(() => import('checkout/Module'));
+
+const getProductsAction = import('state/Module').then(
+  ({ getProductsAction }) => {
+    return getProductsAction;
+  }
+);
 
 export const App: React.FC = () => {
   const store = useSelector((state: StateType) => {
@@ -15,10 +20,11 @@ export const App: React.FC = () => {
   });
   const dispatch = useDispatch();
 
-  // console.log(store);
-
   useEffect(() => {
-    dispatch(getProductsAction());
+    getProductsAction.then((action) => {
+      console.log(getProductsAction);
+      dispatch(action());
+    });
   }, []);
 
   return (
